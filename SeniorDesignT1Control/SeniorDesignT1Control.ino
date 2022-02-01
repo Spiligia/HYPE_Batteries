@@ -1,7 +1,7 @@
 //Set I/O
 const int INPUT_PIN = A1;
 //set pins to variable note: cannnot be const since they will be changed 
-int OUTPUT_RELAY = D7;
+//int OUTPUT_RELAY = D2;
 
 
 void setup() {
@@ -9,14 +9,14 @@ void setup() {
   Serial.begin(115200);
   delay(1000);
   pinMode(INPUT_PIN,INPUT);
-  pinMode(OUTPUT_RELAY,OUTPUT);
+  //pinMode(OUTPUT_RELAY,OUTPUT);
   //Resolution specific to arduino
   analogReadResolution(12);
 }
 
-void loop()  {
+void loop() {
   // put your main code here, to run repeatedly:
-  digitalWrite(OUTPUT_RELAY, HIGH);
+  //digitalWrite(OUTPUT_RELAY, HIGH);
   int sensorReading = analogRead(INPUT_PIN);
   double voltageTherm = (sensorReading/4095.0) * 3.3;
   double Rs = 10000; 
@@ -29,9 +29,10 @@ void loop()  {
   Serial.print(voltageTherm+p1+tempC);
   Serial.print('\n');
   delay(10); //change to desired sampling rate 
-  if (tempC >= 35)// change to desired temperature 
+  if (tempC >= 33)// change to desired temperature 
   {
-    digitalWrite(OUTPUT_RELAY, LOW);
-    delay(5000); //Change to desired timer(ms) 
+    Serial.print("Temp too high!")
+    //digitalWrite(OUTPUT_RELAY, LOW);
+    delay(500); //Change to desired timer(ms) 
     }
 }
