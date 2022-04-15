@@ -9,14 +9,14 @@ void setup() {
   Serial.begin(115200);
   delay(1000);
   pinMode(INPUT_PIN,INPUT);
-  //pinMode(OUTPUT_RELAY,OUTPUT);
+  pinMode(OUTPUT_RELAY,OUTPUT);
   //Resolution specific to arduino
   analogReadResolution(12);
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //digitalWrite(OUTPUT_RELAY, HIGH);
+  digitalWrite(OUTPUT_RELAY, LOW);
   int sensorReading = analogRead(INPUT_PIN);
   double voltageTherm = (sensorReading/4095.0) * 3.3;
   double Rs = 10000; 
@@ -28,10 +28,10 @@ void loop() {
   String p1 = ";";
   Serial.print(voltageTherm+p1+tempC);
   Serial.print('\n');
-  delay(10); //change to desired sampling rate 
-  if (tempC >= 33)// change to desired temperature 
+  delay(500); //change to desired sampling rate 
+  if (tempC >= 50)// change to desired temperature 
   {
-    digitalWrite(OUTPUT_RELAY, LOW);
-    delay(500); //Change to desired timer(ms) 
+    digitalWrite(OUTPUT_RELAY, HIGH);
+    delay(30000); //Change to desired timer(ms) 
     }
 }
