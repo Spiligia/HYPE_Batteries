@@ -1,7 +1,6 @@
-# HeartRateGame #
+# Battery Display #
 
-Demonstrates how to check a Bluetooth-connection, discover LE-devices, connect
-to devices, discover services and finally connect to a heartrate-service.
-The purpose of the game is increase the heartrate so much as possible in 60s.
-Relax before starting the game. Don't be too nervous, it increases the heartrate!
+App build using Qt Creator
 
+Based on HeatRateGame as a template to check for bluetooth & BLE connection, connect
+to devices, discover services and connect to the device to receive BLE data.
