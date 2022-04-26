@@ -1,0 +1,33 @@
+Set up:
+In order to do the simulation, a notebook environment that can write and read Julia script is needed. After obtaining a coding environment like Jupyter notebook, the next steps are to obtain battery data specification sheets for the batteries you wish to simulate. These specification sheets must include: cell capacity, cell voltage, charge current, discharge current, weight, and discharge rate characteristics. The discharge rate characteristics need the voltage versus capacity relationship curves for different discharge rates. The discharge rate characteristics will help approximate the voltage versus capacity relationship curve for our desired discharge rate. Additionally, information about the aircraft being simulated will be needed, specifically: airplane mass, climb velocity, and glide ratio. These specifications will be used to determine the height of the aircraft during flight. Lastly, a diode will be needed in the circuit to prevent leakage current in the lithium-ion battery. This simulation will account for this, but value for diode voltage drop is required. 
+
+
+Pre-testing Setup Procedures:
+CSV File
+Create a CSV file
+Input 60 - 70 data points of battery capacity (Ah) with the corresponding voltage (V) for a specific discharge rate (C)
+Need 3 - 5 different discharge rates
+Diode Testing (If necessary)
+Using a voltmeter, test the voltage across the two terminals to find the diode voltage drop
+
+Testing Procedure:
+Install Plots, CSV, DataFrames, and Interpolations packages into Julia environment
+For each lithium ion battery type desired specification for testing
+Import discharge rate CSV files
+Input single cell capacity, single cell mass,single cell maximum discharge rate,and individual cell energy capacity
+User Tunable Parameter Section
+Choose which lithium ion battery pack to test
+The first line specifies the pack being tested
+Set “pack = [ lithium ion battery being tested ]” 
+Input number of series rows & parallel columns under the “if statement” for specified lithium ion battery
+Input number of series rows & parallel columns under the “if statement” for specified LiFePO4 battery
+Input Aircraft Data 
+Set “airplaneMass = [ mass in kg ]”
+Set “climbVelocity = [ velocity in m/s ]“
+Set “glideRatio = [ glide ratio of aircraft ]“
+Diode
+Set “v_drop_diode = [ voltage drop in V ]”
+ Stimulation Parameters
+Test and change configuration of series and parallel lithium ion and LiFePO4 battery pack to achieve desired height and weight
+
+
