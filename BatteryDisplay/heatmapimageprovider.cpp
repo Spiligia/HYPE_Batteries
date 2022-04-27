@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QUrl>
+#include <QJsonArray>
 
 #include "third-party/QHeatMap/include/heatmapper.h"
 #include "third-party/QHeatMap/include/gradientpalette.h"
@@ -17,12 +18,15 @@ HeatMapImageProvider::HeatMapImageProvider()
     int colorBarHeight = 255;
     palette_ = new GradientPalette(colorBarHeight);
 
-	palette_->setColorAt(0.45, Qt::blue);
-	palette_->setColorAt(0.55, Qt::cyan);
-	palette_->setColorAt(0.65, Qt::green);
-	palette_->setColorAt(0.85, Qt::yellow);
-	palette_->setColorAt(1.0, Qt::red);
+    palette_->setColorAt(.45, Qt::blue); //.45
+    palette_->setColorAt(.55, Qt::cyan); //.55
+    palette_->setColorAt(.65, Qt::green); //.65
+    palette_->setColorAt(.85, Qt::yellow); //.85
+    palette_->setColorAt(1.0, Qt::red); //1.0
 }
+
+
+//add battery temperature parameter to here
 
 QImage HeatMapImageProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize){
     // When Qt passes the string data to the `QQuickImageProvider()`, it converts it to a html percent
@@ -50,8 +54,14 @@ QImage HeatMapImageProvider::requestImage(const QString &id, QSize *size, const 
     int numParallelCells = json.value("numParallelCells").toInt();
     int radius = json.value("radius").toInt();
     int opacity = json.value("opacity").toInt();
+    QJsonArray batTemp = json.value("tempIntensity").toArray();
 
-    qDebug()<< "paramsString: " << paramsJSON << ", requestedSize: " << requestedSize;
+//    qDebug()<< "paramsString: " << paramsJSON << ", requestedSize: " << requestedSize;
+    qDebug()<< "idString: " << idString;
+//    qDebug()<< "batTemp: " << batTemp;
+    for (int i=0; i<batTemp.count(); i++) {
+        qDebug() << batTemp.at(i).toDouble();
+    }
 
     float cellWidth_px = requestedSize.width() / (float)numSeriesCells;
     float cellHeight_px = requestedSize.height() / (float)numParallelCells;
@@ -74,11 +84,23 @@ QImage HeatMapImageProvider::requestImage(const QString &id, QSize *size, const 
 	canvas_->fill(QColor(0, 0, 0, 0));
 	mapper_ = new HeatMapper(canvas_, palette_, radius, opacity);
 
+    int k = 0;
+    int tempArray[100];
+
     // Iterate over each cell and draw a value
     for (int i=0; i< numSeriesCells; i++) {
         for (int j=0; j< numParallelCells; j++) {
-            float temperatureIntensity = 0.5f + (rand() % 50)/100.0f;;
+
+            k = numSeriesCells * numParallelCells + numParallelCells;
+           // tempArray[k] = batTemp[i][j];
+
+            //for(int l = 0; l < tempArray.size(); l++) {
+            float temperatureIntensity =  batTemp.at(k).toDouble();
+
+            //float temperatureIntensity = 0.5f + (rand() % 50)/100.0f;;
             mapper_->addPoint(cellWidth_px*i + cellWidth_px/2, cellHeight_px*j + cellHeight_px/2, temperatureIntensity);
+
+            k++;
         }
     }
 
