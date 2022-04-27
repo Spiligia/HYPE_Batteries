@@ -78,7 +78,7 @@ Item {
         anchors.centerIn: parent
         width: Math.min(parent.height, parent.width)*0.6
         height: GameSettings.heightForWidth(width, sourceSize)
-       // source: "images/logo.png" disable SplashScreen
+        source: "images/Hyp.png" //disable SplashScreen
     }
 
     Timer {
