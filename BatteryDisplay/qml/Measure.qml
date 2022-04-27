@@ -49,7 +49,7 @@
 ****************************************************************************/
 
 import QtQuick 2.5
-
+import QtQuick.Controls 2.2
 
 //page that handles the battery information and heatmap
 
@@ -215,7 +215,7 @@ GamePage {
         color: "#202227"
        //anchors.TopAnchor: 10
         width:  parent.width
-        height: 120 //GameSettings.fieldHeight
+        height: 145 //GameSettings.fieldHeight
        // radius: GameSettings.buttonRadius
 
      //blue rect box
@@ -226,9 +226,11 @@ GamePage {
         }
 
         Text {
-            anchors.centerIn: parent //center text
-            color: "white"
-            text: "Voltage: \n Current: \n Temperature: \n Time:"
+           // anchors.centerIn: parent //center text
+            anchors.left: parent.left
+            id: statusParam
+            color: "White"
+            text:" Voltage: \n Current: \n Temperature: \n Time: \n Location:"
             font.pixelSize: GameSettings.smallFontSize
             height: parent.height
         }
@@ -253,13 +255,61 @@ GamePage {
                 source: imagePath
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
+                MultiPointTouchArea {
+                    anchors.fill: parent
+                    onTouchUpdated: {
+                        console.log("hello, touch" + index)
+                        bob.text = index
+                    }
+                }
+
+                //Display index on the heatmap UI
+                Text {
+                    id: bob
+                    //anchors.fill: parent
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: "red"
+                    text: ""
+                }
+
+                //make index timer disappear after certain time
+                Timer {
+                    id: bobIndexTimer
+                    running: true
+                    repeat: true
+                    interval: 5000
+
+                    onTriggered: {
+
+                        bob.text = ""
+
+                    }
+                }
             }
         }
     }
 
+
+
+    Timer {
+        running: true
+        repeat: true
+        interval: 1000
+
+        //create javascript for temperature data generator by battery cell size in onTrigger command
+
+        onTriggered: {
+            // Generate some JSON data here
+            // Send that JSON data to the rest of the program for drawing an updated heatmap
+            refreshHeatMap()
+            console.log("Timer triggered")
+        }
+
+    }
+
     Rectangle {
         id: batteryDisplay
-//        anchors.fill: parent
         anchors.centerIn: parent
         width: parent.width
         height: grid.cellHeight * numParallelCells
@@ -300,18 +350,36 @@ GamePage {
         }
     }
 
+    //function to generate random temperature data
+    function createTempArray(numSeriesCells, numParallelCells){
+        var result = [];
+        for (var i = 0 ; i < numSeriesCells; i++) {
+            result[i] = [];
+            for (var j = 0; j < numParallelCells; j++) {
+                result[i][j] = (Math.random() * 120 | 0); //not sure what to set max temp to
+            }
+        }
+        return result;
+    }
+
     /*
      * Refreshes the heat map. Uses a silly random number to ensure the new background isn't pulled from the cache
      */
+    //add the battery temperature generated data here
     function refreshHeatMap() {
+
+         // Create a new array of Temp with # of Series & # of parrallel
+         var tempIntensity = createTempArray(numSeriesCells, numParallelCells);
+
         batteryHeatMap.source = 'image://heat_map/{"numSeriesCells": ' + numSeriesCells +
                 ", \"numParallelCells\": " + numParallelCells +
                 ", \"radius\": " + heatMapRadius +
-                ", \"opacity\": " + heatMapOpacity + "}/" + Math.random()
+                ", \"opacity\": " + heatMapOpacity + ", \"tempIntensity\": [" + tempIntensity
+        +"]}/" + Math.random();
 
     }
 
-
+    //reload button
     GameButton {
         id: reloadButton
         anchors.horizontalCenter: parent.horizontalCenter
