@@ -82,10 +82,6 @@ Figure 3: Battery testbench reference
 
 For the future testing,the additional batteries will be added to the testbench when you want to scale up. In additional, you will required to change the fuse and also the wire, since those component are not capable of handling higher current and high voltage. 
 
-
-
-
-
 ## 3D-Model-Battery-Holders
 Base on our testing, we found that the battery holder that we bought online are no capable of handling high heat, so we decided to 3D model the battery holders by using pla material. The holder for the LiFePO4 contains the base and the top.(Figure 4&5) For Lithium-ion, it will need two identical 3d models to hold battery in place.(Figure 6) Since our final design pack is 19 series 1 parallel of LiFePO4 and 12 series 8 parallel of Lithium-ion, we will need two sets of LiFePO4 battery holders and 4 sets of Lithium-ion battery holders.  
 
@@ -115,24 +111,10 @@ The temperature sensing module circuit is based on the use of thermistors in a h
 
 
 
+##Bills of Materials
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-Bills of Materials
-
-
-
+![bom](bom)
 
 
 
