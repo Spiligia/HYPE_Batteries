@@ -101,16 +101,17 @@ Figure 6:Lithium-Ion Battery Holder 21700
 The ideal diode controller will replace the schottky diode for the full scale battery pack. This ideal diode is used to reduce the voltage drop across the diode when the current reaches higher magnitudes. There are two main parts to this component, the ideal diode controller itself and the PCB to house the components. In the PCB, we use two MOSFETs (parts listed in schematic) to distribute the current evenly. To deal with the problem of heat dissipation on the board, we have multiple solutions. The board will have two copper pours on both the top and bottom layers as well as a heat sink on top to further distribute the heat. Additionally, the configuration of the MOSFETs and trace width are also very important for distributing heat. Copper busbars must be soldered on the traces for the 300A current path to help handle the current. More details can be found in the schematics and board diagrams below. 
 
 
-![ideal diode boadr](idb)
+![ideal diode boadr](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/idealdiodelayout.PNG)
+
+
+![idealdiodeschema](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/idealdiodeschematic.PNG)
 
 ## Temperature-sensing-module
 The temperature sensing module circuit is based on the use of thermistors in a higher temperature application. Any 10k thermistors will do as long as special care is taken to tuning and programming of the microcontrollers ADC pin and readings. Special care will also need to be taken into account for the speed of the system, specifically rise and fall time. With a 0.1uF capacitor acting as the low pass filter into the final op amp the frequency is limited by the rise time of the capacitor. This can be measured through software simulations or mathematical circuit analysis. To manufacture the PCBs you will need to use KiCAD — a free pcb design software— to get the necessary files to order the PCBs. To set up the modules they will need to be daisy chained in accordance with the circuit diagram to ensure proper orders of signals and functions. A Premade gerber folder is available in Github for the ordering of the boards.
 
+![daisyboard1](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/daisyboardschema.PNG)
 
-
-
-
-
+![daisyboard2](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/daisyboardlayout.PNG)
 
 ## Bill-of-Materials
 
