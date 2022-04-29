@@ -68,16 +68,16 @@ In order to properly conduct this testbench setup, there are several hardware ne
 
 
 
-![figure1](fig 1)
+![figure1](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/test1schema.PNG)
 Figure 1: KiCad EDA design schematic of In-lab test 1 (manual current scheduling). Schematic in terms of motor controller design. 
 
 
 
-![fig2](fig2)
+![fig2](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/bridgerectifier.PNG)
 Figure 2: Reference schematic of three-phase diode bridge rectifier. Terminals ~C and B- are used to retrieve a single Schottky barrier from the rectifier. 
 
 
-![fig3](fig3)
+![fig3](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/testbench.PNG)
 Figure 3: Battery testbench reference 
 
 For the future testing,the additional batteries will be added to the testbench when you want to scale up. In additional, you will required to change the fuse and also the wire, since those component are not capable of handling higher current and high voltage. 
@@ -114,7 +114,7 @@ The temperature sensing module circuit is based on the use of thermistors in a h
 ##Bills of Materials
 
 
-![bom](bom)
+![bom](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/totol%20par%20lsidt.PNG)
 
 
 
