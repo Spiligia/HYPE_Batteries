@@ -78,9 +78,9 @@ The code will automatically create graphs and charts for the user to have a bett
 The following software packages are needed before proceeding with the software configuration instructions:
 
 - VESC Tool (free version) GUI developed by Benjamin Vedder
- - - Qt Toolkit
-- - .zip file extractor (Windows, Linux, Mac OS X, and Android supported like WinZip or 7-Zip)
-- - Source code: https://github.com/vedderb/vesc_tool
+    - Qt Toolkit
+    - .zip file extractor (Windows, Linux, Mac OS X, and Android supported like WinZip or 7-Zip)
+     - Source code: https://github.com/vedderb/vesc_tool
  - VESC-Lisp, Common Lisp, or LispBM Scripts
  - - ANSI Common Lisp GNU v2.49 (2010-07-07 build) compiler (REPL)
  - - For Mac OS X, install via MacPorts 
