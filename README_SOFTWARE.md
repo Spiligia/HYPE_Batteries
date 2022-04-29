@@ -55,22 +55,22 @@ The file is called hybrid_battery_analysis_final.py in the github resources. Her
 3. Download Julia 1.6.3 from the internet 
 4. Install Plots, CSV, DataFrames, and Interpolations packages into Julia environment
 5. For each lithium ion battery type desired specification for testing
- - Import discharge rate CSV files
- - Input single cell capacity, single cell mass,single cell maximum discharge rate,and individual cell energy capacity from the spec sheet provide by the manufacturer 
+    - Import discharge rate CSV files
+    - Input single cell capacity, single cell mass,single cell maximum discharge rate,and individual cell energy capacity from the spec sheet provide by the manufacturer 
 6. User Tunable Parameter Section
- - Choose which lithium ion battery pack to test
- - The first line specifies the pack being tested
-  - - Set “pack = [ lithium ion battery being tested ]” 
- - Input number of series rows & parallel columns under the “if statement” for specified lithium ion battery
- -  Input number of series rows & parallel columns under the “if statement” for specified LiFePO4 battery
+    - Choose which lithium ion battery pack to test
+    - The first line specifies the pack being tested
+        - Set “pack = [ lithium ion battery being tested ]” 
+    - Input number of series rows & parallel columns under the “if statement” for specified lithium ion battery
+    -  Input number of series rows & parallel columns under the “if statement” for specified LiFePO4 battery
 7. Input Aircraft Data 
- - Set “airplaneMass = [ mass in kg ]”
- - Set “climbVelocity = [ velocity in m/s ]“
- - Set “glideRatio = [ glide ratio of aircraft ]“
+    - Set “airplaneMass = [ mass in kg ]”
+    - Set “climbVelocity = [ velocity in m/s ]“
+    - Set “glideRatio = [ glide ratio of aircraft ]“
 8. Diode
- - Set “v_drop_diode = [ voltage drop in V ]”
+    - Set “v_drop_diode = [ voltage drop in V ]”
 9. Stimulation Parameters
- - Test and change configuration of series and parallel lithium ion and LiFePO4 battery pack to achieve desired height and weight
+    - Test and change configuration of series and parallel lithium ion and LiFePO4 battery pack to achieve desired height and weight
 
 The code will automatically create graphs and charts for the user to have a better understanding on each configuration. Through the graphs and charts, users will be able to adjust the number of the battery cells they are using and also adjust the type of the battery cells in the battery pack.  
 
@@ -134,6 +134,6 @@ As for the functions used in the diagram:
     - the sanity checks are conditions that are defined such that some flag token is set to some value corresponding to sane or insane
     - either power level function is called in the sanity check function (or vice-versa possible) to parse the sane/insane flag inputs and transition the power level according to that flag token. If the flag input is sane, then power is transitioned to higher level, and otherwise, if it's insane, then the power is transitioned to lower level
     - in the definition of the sanity check function, the function itself is called again in order for it to loop indefinitely according to some sleep frequency (similar to void loop in Arduino IDE)
-    
+
 After defining the power level function and sanity check function in the lisp script, the power level function would be first called with the corresponding input token for initializing the battery state and determining its relevant parameters (i.e. it runs once similar to void setup in Arduino IDE). Then, the sanity check function would be directly called with the outputs of the power level function as its inputs.
 
