@@ -86,13 +86,13 @@ For the future testing,the additional batteries will be added to the testbench w
 Base on our testing, we found that the battery holder that we bought online are no capable of handling high heat, so we decided to 3D model the battery holders by using pla material. The holder for the LiFePO4 contains the base and the top.(Figure 4&5) For Lithium-ion, it will need two identical 3d models to hold battery in place.(Figure 6) Since our final design pack is 19 series 1 parallel of LiFePO4 and 12 series 8 parallel of Lithium-ion, we will need two sets of LiFePO4 battery holders and 4 sets of Lithium-ion battery holders.  
 
 
-![fig4](ffbn)
+![fig4](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/lifepotop.PNG)
 Figure 4:LiFePO4 Battery Holder Top 26650
 
-![idfb](hbv)
+![FIG5](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/lifepobase.PNG)
 Figure 5:LiFePO4 Battery Holder Base 26650
 
-![jbsv](isjb)
+![FIG6](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/liionholder.PNG)
 Figure 6:Lithium-Ion Battery Holder 21700
 
 ## Ideal-Diode
