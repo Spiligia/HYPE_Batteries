@@ -3,15 +3,12 @@ Team #23 Software Report
 
 ## Contents
 - [Overview](#overview)
-
-- [Battery Temperature Display](#Battery Temperature Display)
-
+- [Battery Temperature Display](#Battery-Temperature-Display)
 - [Qt Creator Download Instruction](#Qt-Creator-Download-Instructions)
 - [Qt Creator Interface](#Qt-Creator-Interface)
 - [Battery Pack Configuration Simulation](#Battery-Pack-Configuration-Simulation)
 - [Battery Pack “Naive” Testbench Automation](#Battery-Pack-“Naive”-Testbench-Automation)
 - [Battery Pack Structural Testbench Automation](#Battery-Pack-Structural-Testbench-Automation)
-
 
 ## Overview
 
@@ -19,8 +16,8 @@ Our project HYP Batteries has three software operations required to test our har
 
 ## Battery-Temperature-Display
 
-
 The preferred integrated development environment (IDE) for battery temperature display is Qt Creator which is a cross platform for C++, javascript and QML. The software is available to download online through Qt Creator website, https://www.qt.io/.
+
 ## Qt-Creator-Download-Instructions
 
 1. Users must click on the download button below the website
