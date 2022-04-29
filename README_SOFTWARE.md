@@ -34,7 +34,7 @@ After downloading Qt Creator navigate to github to download the source code for 
 
 Basic rundown of Qt creator interface, welcome tab is where you can find example templates, create and open projects, the edit tab will be the project you're working on after you select a file on the welcome tab, the computer icon is how you wish to emulate the app, there’s two play button one to run the file and other is to debug, lastly the hammer icon is to compile the files prior to running.
 
-![qt interface pic]('locationof pci' )
+![qt interface pic]('https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
 	
 ## Battery-Pack-Configuration-Simulation
 
@@ -101,7 +101,7 @@ Thus, it is not surprising to find that Lisp is used in a myriad of embedded sys
 The VESC-tool developed by Benjamin Vedder allows for an interactive means of testing our battery pack. In particular, it allows us to have a lot of freedom in both tuning, tracking, and analyzing many of the parameters involved in the process of scaling up the pack like the battery temperature, MOSFET temperature, motor current and voltage, duty cycles, power levels, power level transitions, etc. So as to make the project more straightforward and understandable, the first step of testbench automation can be naive. That is to say, users can open the file naive_testbench.lisp in order to automate a “naive” automation of the motor current (using the set-current function) while previewing the real-time series plots on the VESC tool.
 
 ## Battery-Pack-Structural-Testbench-Automation
- ![lispstruct](lispstruct)
+ ![lispstruct](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/lispstruct.PNG)
 The testbench code found in battery_testbench_v1.00.lisp should have some loop with at least four “top-view” conditions (a.k.a. battery monitoring sanity checks) and then it should have some actuation mechanism where as long as those conditions are satisfied, then the next phase of testing will begin according to the state variable or parameter list. So, the top view diagram provided above lists the definitions and relations between the following relevant battery testing parameters:
 
  - t_test - Testing period (time set for testing that is measured in seconds and ranges from 0 to TIME_MAX), where TIME_MAX is some constant that is defined by the user or client accordingly
