@@ -49,6 +49,7 @@
 ****************************************************************************/
 
 import QtQuick 2.5
+import QtQuick.Controls 2.15
 
 // title bar of the app
 Rectangle    {
@@ -68,7 +69,7 @@ Rectangle    {
     Repeater {
         model: 2 //change from 3 to 2 (change the rectangle boxes to 2, get rid of stats page)
         Text {
-            width: titleBar.width / 2 //change from / 3 to 2
+            width: titleBar.width / 2
             height: titleBar.height
             x: index * width
             horizontalAlignment: Text.AlignHCenter
@@ -84,10 +85,10 @@ Rectangle    {
         }
     }
 
-
+    //page indicator on top
     Item {
         anchors.bottom: parent.bottom
-        width: parent.width / 3
+        width: parent.width / 2
         height: parent.height
         x: currentIndex * width
 
