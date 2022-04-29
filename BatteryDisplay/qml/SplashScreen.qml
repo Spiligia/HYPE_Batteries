@@ -51,7 +51,7 @@
 import QtQuick 2.5
 import "."
 
-//App launch screen logo, when you open the default app there's a logo that appear (splash screen). Currently inactive
+//App launch screen logo, when you open the default app there's a logo that appear (splash screen).
 Item {
     id: root
     anchors.fill: parent
@@ -74,13 +74,16 @@ Item {
         Qt.quit()
     }
 
+
+    //App splash screen image
     Image {
         anchors.centerIn: parent
         width: Math.min(parent.height, parent.width)*0.6
         height: GameSettings.heightForWidth(width, sourceSize)
-        source: "images/Hyp.png" //disable SplashScreen
+        source: "images/Hyp.png"
     }
 
+    //timer for splash screen
     Timer {
         id: splashTimer
         interval: 1000
