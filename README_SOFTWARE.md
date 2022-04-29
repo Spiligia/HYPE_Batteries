@@ -1,55 +1,48 @@
 Team #23 Software Report
 
-Overview
+
+## Contents
+- [Overview](#overview)
+
+- [Dependencies](#dependencies)
+
+- [Installation](#installation)
+- [Development](#development)
+- [Building/Uploading](#building/uploading)
+- [Use/Debugging](#use/debugging)
+
+## Overview
 
 Our project HYP Batteries has three software operations required to test our hardware: battery pack simulation, battery pack temperature monitoring, and battery pack automated testing. 
 
-Battery Temperature Display
+## Battery Temperature Display
 
-	The preferred integrated development environment (IDE) for battery temperature display is Qt Creator which is a cross platform for C++, javascript and QML. The software is available to download online through Qt Creator website, https://www.qt.io/.
 
-Qt Creator Download Instructions
+The preferred integrated development environment (IDE) for battery temperature display is Qt Creator which is a cross platform for C++, javascript and QML. The software is available to download online through Qt Creator website, https://www.qt.io/.
+## Qt Creator Download Instructions
 
-Users must click on the download button below the website
-Direct to “Downloads for open source users” to get a free copy
-After navigating to that page the user will need to scroll all the way down 
-Then hit the download button and follow along with the instructions. You might need to download additional features like Xcode & Xcode command line tools for Mac OS
-Select an installation folder on your device and check off custom installation
-Under custom installation page select Qt 6.3.0 default feature which will selection all options within the folder
-Afterward read Terms of Service page and begin downloading process for Qt Creator
+1. Users must click on the download button below the website
+2. Direct to “Downloads for open source users” to get a free copy
+3. After navigating to that page the user will need to scroll all the way down 
+4. Then hit the download button and follow along with the instructions. You might need to download additional features like Xcode & Xcode command line tools for Mac OS
+5. Select an installation folder on your device and check off custom installation
+6. Under custom installation page select Qt 6.3.0 default feature which will selection all options within the folder
+7. Afterward read Terms of Service page and begin downloading process for Qt Creator
 
 After downloading Qt Creator navigate to github to download the source code for battery temperature display app: https://github.com/Spiligia/HYPE_Batteries/tree/main/BatteryDisplay. From there launch the Qt Creator application and open the project, make sure you select the Battery Display folder. From there you can choose to emulate the application on the PC or another platform either Android or Apple. You must have additional packages downloaded to run on either Android and Apple platform that Qt Creator would recommend to download prior to building the files. 
 
-Qt Creator Interface
+## Qt Creator Interface
 
 
+Basic rundown of Qt creator interface, welcome tab is where you can find example templates, create and open projects, the edit tab will be the project you're working on after you select a file on the welcome tab, the computer icon is how you wish to emulate the app, there’s two play button one to run the file and other is to debug, lastly the hammer icon is to compile the files prior to running.
 
+## Code function
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	Basic rundown of Qt creator interface, welcome tab is where you can find example templates, create and open projects, the edit tab will be the project you're working on after you select a file on the welcome tab, the computer icon is how you wish to emulate the app, there’s two play button one to run the file and other is to debug, lastly the hammer icon is to compile the files prior to running. 
-
-Code function
-
-
+![qt interface pic]('locationof pci' )
 	
 
 
-Battery Pack Configuration Simulation
+## Battery Pack Configuration Simulation
 
 In order to do the simulation, a notebook environment that can write and read Julia script is needed. After obtaining a coding environment like Jupyter notebook, the next steps are to obtain battery data specification sheets for the batteries you wish to simulate. These specification sheets must include: cell capacity, cell voltage, charge current, discharge current, weight, and discharge rate characteristics. The discharge rate characteristics need the voltage versus capacity relationship curves for different discharge rates. The discharge rate characteristics will help approximate the voltage versus capacity relationship curve for our desired discharge rate. Additionally, information about the aircraft being simulated will be needed, specifically: airplane mass, climb velocity, and glide ratio. These specifications will be used to determine the height of the aircraft during flight. Lastly, a diode will be needed in the circuit to prevent leakage current in the lithium-ion battery. This simulation will account for this, but value for diode voltage drop is required. 
 
@@ -57,41 +50,41 @@ We will need to create CSV files for simulating the configuration of the battery
 
 The file is called hybrid_battery_analysis_final.py in the github resources. Here are the steps for this code.
 
-Download Anaconda Navigator from the internet and install the jupyter notebook 6.3.0
-Upload the code to the jupyter notebook
-Download Julia 1.6.3 from the internet 
-Install Plots, CSV, DataFrames, and Interpolations packages into Julia environment
-For each lithium ion battery type desired specification for testing
-Import discharge rate CSV files
-Input single cell capacity, single cell mass,single cell maximum discharge rate,and individual cell energy capacity from the spec sheet provide by the manufacturer 
-User Tunable Parameter Section
-Choose which lithium ion battery pack to test
-The first line specifies the pack being tested
-Set “pack = [ lithium ion battery being tested ]” 
-Input number of series rows & parallel columns under the “if statement” for specified lithium ion battery
-Input number of series rows & parallel columns under the “if statement” for specified LiFePO4 battery
-Input Aircraft Data 
-Set “airplaneMass = [ mass in kg ]”
-Set “climbVelocity = [ velocity in m/s ]“
-Set “glideRatio = [ glide ratio of aircraft ]“
-Diode
-Set “v_drop_diode = [ voltage drop in V ]”
- Stimulation Parameters
-Test and change configuration of series and parallel lithium ion and LiFePO4 battery pack to achieve desired height and weight
+1. Download Anaconda Navigator from the internet and install the jupyter notebook 6.3.0
+2. Upload the code to the jupyter notebook
+3. Download Julia 1.6.3 from the internet 
+4. Install Plots, CSV, DataFrames, and Interpolations packages into Julia environment
+5. For each lithium ion battery type desired specification for testing
+ - Import discharge rate CSV files
+ - Input single cell capacity, single cell mass,single cell maximum discharge rate,and individual cell energy capacity from the spec sheet provide by the manufacturer 
+6. User Tunable Parameter Section
+ - Choose which lithium ion battery pack to test
+ - The first line specifies the pack being tested
+  - - Set “pack = [ lithium ion battery being tested ]” 
+ - Input number of series rows & parallel columns under the “if statement” for specified lithium ion battery
+ -  Input number of series rows & parallel columns under the “if statement” for specified LiFePO4 battery
+7. Input Aircraft Data 
+ - Set “airplaneMass = [ mass in kg ]”
+ - Set “climbVelocity = [ velocity in m/s ]“
+ - Set “glideRatio = [ glide ratio of aircraft ]“
+8. Diode
+ - Set “v_drop_diode = [ voltage drop in V ]”
+9. Stimulation Parameters
+ - Test and change configuration of series and parallel lithium ion and LiFePO4 battery pack to achieve desired height and weight
 
 The code will automatically create graphs and charts for the user to have a better understanding on each configuration. Through the graphs and charts, users will be able to adjust the number of the battery cells they are using and also adjust the type of the battery cells in the battery pack.  
 
-Battery Pack “Naive” Testbench Automation
+## Battery Pack “Naive” Testbench Automation
 The following software packages are needed before proceeding with the software configuration instructions:
 
-VESC Tool (free version) GUI developed by Benjamin Vedder
-Qt Toolkit
-.zip file extractor (Windows, Linux, Mac OS X, and Android supported like WinZip or 7-Zip)
-Source code: https://github.com/vedderb/vesc_tool
-VESC-Lisp, Common Lisp, or LispBM Scripts
-ANSI Common Lisp GNU v2.49 (2010-07-07 build) compiler (REPL)
-For Mac OS X, install via MacPorts 
-For Windows and Linux (Ubuntu, Debian, Sun Solaris, etc.), install directly from https://clisp.sourceforge.io/
+- VESC Tool (free version) GUI developed by Benjamin Vedder
+ - - Qt Toolkit
+- - .zip file extractor (Windows, Linux, Mac OS X, and Android supported like WinZip or 7-Zip)
+- - Source code: https://github.com/vedderb/vesc_tool
+ - VESC-Lisp, Common Lisp, or LispBM Scripts
+ - - ANSI Common Lisp GNU v2.49 (2010-07-07 build) compiler (REPL)
+ - - For Mac OS X, install via MacPorts 
+- - For Windows and Linux (Ubuntu, Debian, Sun Solaris, etc.), install directly from https://clisp.sourceforge.io/
 
 To setup the VESC Tool, follow these instructions: 
 
