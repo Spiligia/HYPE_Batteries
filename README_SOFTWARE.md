@@ -82,23 +82,23 @@ The following software packages are needed before proceeding with the software c
     - .zip file extractor (Windows, Linux, Mac OS X, and Android supported like WinZip or 7-Zip)
      - Source code: https://github.com/vedderb/vesc_tool
  - VESC-Lisp, Common Lisp, or LispBM Scripts
- - - ANSI Common Lisp GNU v2.49 (2010-07-07 build) compiler (REPL)
- - - For Mac OS X, install via MacPorts 
-- - For Windows and Linux (Ubuntu, Debian, Sun Solaris, etc.), install directly from https://clisp.sourceforge.io/
+     - ANSI Common Lisp GNU v2.49 (2010-07-07 build) compiler (REPL)
+     - For Mac OS X, install via MacPorts 
+     - For Windows and Linux (Ubuntu, Debian, Sun Solaris, etc.), install directly from https://clisp.sourceforge.io/
 
 To setup the VESC Tool, follow these instructions: 
 
-Create an account on https://vesc-project.com/ > click on “VESC tool’ tab > purchase VESC Tool Free for €0.00 (no billing information required) > click on “Purchased Files” link (top right corner) > download and extract “vesc_tool_BETA_ALL.zip” (or for Windows users, download “vesc_tool_free_windows.zip”)
+ - Create an account on https://vesc-project.com/ > click on “VESC tool’ tab > purchase VESC Tool Free for €0.00 (no billing information required) > click on “Purchased Files” link (top right corner) > download and extract “vesc_tool_BETA_ALL.zip” (or for Windows users, download “vesc_tool_free_windows.zip”)
 
-Alternatively install directly via source code: https://github.com/vedderb/vesc_tool
+ - Alternatively install directly via source code: https://github.com/vedderb/vesc_tool
 
-For Windows and Linux users, Install REPL Lisp compiler via SourceForge 
+ - For Windows and Linux users, Install REPL Lisp compiler via SourceForge 
 
-For Mac OS X users install MacPorts v2.7.1
-Install Xcode and Xcode Command Line Tools
+ - For Mac OS X users install MacPorts v2.7.1
+    - Install Xcode and Xcode Command Line Tools
 Agree to Xcode license in Terminal: sudo xcodebuild -license
-Install MacPorts according to version of OS X (convenient installation through .pkg installer for version 10.15+) on https://www.macports.org/install.php
-After MacPorts installation, type sudo port install clisp to install common lisp implementation (interpreter, compiler, debugger, etc.)
+    -  Install MacPorts according to version of  OS X (convenient installation through .pkg installer for version 10.15+) on https://www.macports.org/install.php
+    - After MacPorts installation, type sudo port install clisp to install common lisp implementation (interpreter, compiler, debugger, etc.)
 
 After having performed extensive manual testing of the hybrid battery pack, the team later on started researching a more modular, automated means of testing the pack, in which they stumbled upon Lisp. Lisp (List Programming) is the second oldest high-level programming language (developed in 1958 by John McCarthy at MIT) that is built from s-expressions, which are essentially lists (or sequences of atoms, i.e. numbers, contiguous characters, and strings) that are enclosed in parentheses. This was particularly suitable for AI programs at the time as the arguments that are passed to the REPL (Read-Evaluate-Print-Loop) interpreter are very efficiently processed (i.e. efficient processing of symbolic information). From our research, Common Lisp was primarily used from 1980 to 1990, and is the dialect that we started learning accordingly. However, over the past decades, Common Lisp has branched out into so many different dialects like ArcLisp, HyLisp, NuLisp, Liskell, and so on, as well as the more recently developed dialects like Bel developed by Paul Graham. In fact, AutoCad was built in the Lisp language, and has its own dialect called AutoLisp! So, it is not unreasonable to say that this scripting language is still a very rigid choice today given its high symbolic processing efficiency.
 
@@ -106,39 +106,34 @@ Thus, it is not surprising to find that Lisp is used in a myriad of embedded sys
 
 The VESC-tool developed by Benjamin Vedder allows for an interactive means of testing our battery pack. In particular, it allows us to have a lot of freedom in both tuning, tracking, and analyzing many of the parameters involved in the process of scaling up the pack like the battery temperature, MOSFET temperature, motor current and voltage, duty cycles, power levels, power level transitions, etc. So as to make the project more straightforward and understandable, the first step of testbench automation can be naive. That is to say, users can open the file naive_testbench.lisp in order to automate a “naive” automation of the motor current (using the set-current function) while previewing the real-time series plots on the VESC tool.
 
+## Battery Pack Structural Testbench Automation
+ ![lispstruct](lispstruct)
+The testbench code found in battery_testbench_v1.00.lisp should have some loop with at least four “top-view” conditions (a.k.a. battery monitoring sanity checks) and then it should have some actuation mechanism where as long as those conditions are satisfied, then the next phase of testing will begin according to the state variable or parameter list. So, the top view diagram provided above lists the definitions and relations between the following relevant battery testing parameters:
 
+ - t_test - Testing period (time set for testing that is measured in seconds and ranges from 0 to TIME_MAX), where TIME_MAX is some constant that is defined by the user or client accordingly
+ - user_stop - User-defined input (manual STOP command of testing)
+ - sane & insane - Sane state is that which meets the conditions involving each parameter outlined below, and insane is that which doesn't otherwise 
+     - T_batt (battery pack temperature, however it is defined), T_cell1, T_cell2,..., T_celln (temperature of each cell as defined by the engineers)
+    - T_fet (MCU MOSFET temperature)
+    - i_motor (motor phase currents)
+    - v_motor (motor voltage)
+    - i_batt (battery current), i_cell1, ... , i_celln (given cell group current)
+    - v_batt (battery voltage) and v_cell (per cell voltage)
+    - p_batt (battery power), p_cell (per cell power), p_L (current power delivered to load/motor)
+    - SOC_batt (battery state of charge)
+    - C_nom_batt (nominal capacity of battery), C_current (current capacity of battery)
+    - t_discharge (time remaining for battery to discharge)
 
-
-
-
-
-
-
-Battery Pack Structural Testbench Automation
-
-
-The testbench code found in battery_testbench_v1.00.lisp should have some loop with at least four “top-view” conditions (a.k.a. battery monitoring sanity checks) and then it should have some actuation mechanism where as long as those conditions are satisfied, then the next phase of testing will begin according to the state variable or parameter list. So, the top view diagram provided above lists the definitions and relations between the following relevant battery testing parameters: 
-t_test - Testing period (time set for testing that is measured in seconds and ranges from 0 to TIME_MAX), where TIME_MAX is some constant that is defined by the user or client accordingly
-user_stop - User-defined input (manual STOP command of testing)
-sane & insane - Sane state is that which meets the conditions involving each parameter outlined below, and insane is that which doesn't otherwise 
-T_batt (battery pack temperature, however it is defined), T_cell1, T_cell2,..., T_celln (temperature of each cell as defined by the engineers)
-T_fet (MCU MOSFET temperature)
-i_motor (motor phase currents)
-v_motor (motor voltage)
-i_batt (battery current), i_cell1, ... , i_celln (given cell group current)
-v_batt (battery voltage) and v_cell (per cell voltage)
- p_batt (battery power), p_cell (per cell power), p_L (current power delivered to load/motor)
-SOC_batt (battery state of charge)
-C_nom_batt (nominal capacity of battery), C_current (current capacity of battery)
-t_discharge (time remaining for battery to discharge)
 As for the functions used in the diagram: 
-power_level(flag) - A power level function that sets relevant parameters according to some input token (“flag”)
-the power level function determines the initial state of the battery and sets the relevant parameters (initial values)
-the input token determines whether or not the test transitions to a higher or lower power level or shuts down
-the function prints relevant parameters to the console for debugging and even manipulate some data if needed
-sanity_checker(param_list) - A sanity check function that evaluates the current battery state and set its values according to a number of conditions
-the sanity checks are conditions that are defined such that some flag token is set to some value corresponding to sane or insane
-either power level function is called in the sanity check function (or vice-versa possible) to parse the sane/insane flag inputs and transition the power level according to that flag token. If the flag input is sane, then power is transitioned to higher level, and otherwise, if it's insane, then the power is transitioned to lower level
-in the definition of the sanity check function, the function itself is called again in order for it to loop indefinitely according to some sleep frequency (similar to void loop in Arduino IDE)
+
+- power_level(flag) - A power level function that sets relevant parameters according to some input token (“flag”)
+    - the power level function determines the initial state of the battery and sets the relevant parameters (initial values)
+    - the input token determines whether or not the test transitions to a higher or lower power level or shuts down
+    - the function prints relevant parameters to the console for debugging and even manipulate some data if needed
+- sanity_checker(param_list) - A sanity check function that evaluates the current battery state and set its values according to a number of conditions
+    - the sanity checks are conditions that are defined such that some flag token is set to some value corresponding to sane or insane
+    - either power level function is called in the sanity check function (or vice-versa possible) to parse the sane/insane flag inputs and transition the power level according to that flag token. If the flag input is sane, then power is transitioned to higher level, and otherwise, if it's insane, then the power is transitioned to lower level
+    - in the definition of the sanity check function, the function itself is called again in order for it to loop indefinitely according to some sleep frequency (similar to void loop in Arduino IDE)
+    
 After defining the power level function and sanity check function in the lisp script, the power level function would be first called with the corresponding input token for initializing the battery state and determining its relevant parameters (i.e. it runs once similar to void setup in Arduino IDE). Then, the sanity check function would be directly called with the outputs of the power level function as its inputs.
 
