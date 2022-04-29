@@ -52,7 +52,6 @@ import QtQuick 2.5
 import QtQuick.Controls 2.2
 
 //page that handles the battery information and heatmap
-
 GamePage {
     id: measurePage
 
@@ -291,7 +290,7 @@ GamePage {
     }
 
 
-
+    //timer to refresh the heatmap onTriggered
     Timer {
         running: true
         repeat: true
@@ -308,6 +307,7 @@ GamePage {
 
     }
 
+    //component for the heatp map display
     Rectangle {
         id: batteryDisplay
         anchors.centerIn: parent
@@ -338,6 +338,7 @@ GamePage {
 
     }
 
+    //To draw the heatmap
     ListModel {
         id: contactModel
 
@@ -356,7 +357,7 @@ GamePage {
         for (var i = 0 ; i < numSeriesCells; i++) {
             result[i] = [];
             for (var j = 0; j < numParallelCells; j++) {
-                result[i][j] = (Math.random() * 120 | 0); //not sure what to set max temp to
+                result[i][j] = (Math.random() * 120); //set random max temp to
             }
         }
         return result;
