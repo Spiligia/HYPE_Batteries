@@ -124,7 +124,3 @@ The temperature sensing module circuit is based on the use of thermistors in a h
 
 
 
-
-
-
-
