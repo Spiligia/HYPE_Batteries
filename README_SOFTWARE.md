@@ -4,22 +4,24 @@ Team #23 Software Report
 ## Contents
 - [Overview](#overview)
 
-- [Dependencies](#dependencies)
+- [Battery Temperature Display](#Battery Temperature Display)
 
-- [Installation](#installation)
-- [Development](#development)
-- [Building/Uploading](#building/uploading)
-- [Use/Debugging](#use/debugging)
+- [Qt Creator Download Instruction](#Qt-Creator-Download-Instructions)
+- [Qt Creator Interface](#Qt-Creator-Interface)
+- [Battery Pack Configuration Simulation](#Battery-Pack-Configuration-Simulation)
+- [Battery Pack “Naive” Testbench Automation](#Battery-Pack-“Naive”-Testbench-Automation)
+- [Battery Pack Structural Testbench Automation](#Battery-Pack-Structural-Testbench-Automation)
+
 
 ## Overview
 
 Our project HYP Batteries has three software operations required to test our hardware: battery pack simulation, battery pack temperature monitoring, and battery pack automated testing. 
 
-## Battery Temperature Display
+## Battery-Temperature-Display
 
 
 The preferred integrated development environment (IDE) for battery temperature display is Qt Creator which is a cross platform for C++, javascript and QML. The software is available to download online through Qt Creator website, https://www.qt.io/.
-## Qt Creator Download Instructions
+## Qt-Creator-Download-Instructions
 
 1. Users must click on the download button below the website
 2. Direct to “Downloads for open source users” to get a free copy
@@ -31,18 +33,13 @@ The preferred integrated development environment (IDE) for battery temperature d
 
 After downloading Qt Creator navigate to github to download the source code for battery temperature display app: https://github.com/Spiligia/HYPE_Batteries/tree/main/BatteryDisplay. From there launch the Qt Creator application and open the project, make sure you select the Battery Display folder. From there you can choose to emulate the application on the PC or another platform either Android or Apple. You must have additional packages downloaded to run on either Android and Apple platform that Qt Creator would recommend to download prior to building the files. 
 
-## Qt Creator Interface
-
+## Qt-Creator-Interface
 
 Basic rundown of Qt creator interface, welcome tab is where you can find example templates, create and open projects, the edit tab will be the project you're working on after you select a file on the welcome tab, the computer icon is how you wish to emulate the app, there’s two play button one to run the file and other is to debug, lastly the hammer icon is to compile the files prior to running.
 
-## Code function
-
 ![qt interface pic]('locationof pci' )
 	
-
-
-## Battery Pack Configuration Simulation
+## Battery-Pack-Configuration-Simulation
 
 In order to do the simulation, a notebook environment that can write and read Julia script is needed. After obtaining a coding environment like Jupyter notebook, the next steps are to obtain battery data specification sheets for the batteries you wish to simulate. These specification sheets must include: cell capacity, cell voltage, charge current, discharge current, weight, and discharge rate characteristics. The discharge rate characteristics need the voltage versus capacity relationship curves for different discharge rates. The discharge rate characteristics will help approximate the voltage versus capacity relationship curve for our desired discharge rate. Additionally, information about the aircraft being simulated will be needed, specifically: airplane mass, climb velocity, and glide ratio. These specifications will be used to determine the height of the aircraft during flight. Lastly, a diode will be needed in the circuit to prevent leakage current in the lithium-ion battery. This simulation will account for this, but value for diode voltage drop is required. 
 
@@ -74,7 +71,7 @@ The file is called hybrid_battery_analysis_final.py in the github resources. Her
 
 The code will automatically create graphs and charts for the user to have a better understanding on each configuration. Through the graphs and charts, users will be able to adjust the number of the battery cells they are using and also adjust the type of the battery cells in the battery pack.  
 
-## Battery Pack “Naive” Testbench Automation
+## Battery-Pack-“Naive”-Testbench-Automation
 The following software packages are needed before proceeding with the software configuration instructions:
 
 - VESC Tool (free version) GUI developed by Benjamin Vedder
@@ -106,7 +103,7 @@ Thus, it is not surprising to find that Lisp is used in a myriad of embedded sys
 
 The VESC-tool developed by Benjamin Vedder allows for an interactive means of testing our battery pack. In particular, it allows us to have a lot of freedom in both tuning, tracking, and analyzing many of the parameters involved in the process of scaling up the pack like the battery temperature, MOSFET temperature, motor current and voltage, duty cycles, power levels, power level transitions, etc. So as to make the project more straightforward and understandable, the first step of testbench automation can be naive. That is to say, users can open the file naive_testbench.lisp in order to automate a “naive” automation of the motor current (using the set-current function) while previewing the real-time series plots on the VESC tool.
 
-## Battery Pack Structural Testbench Automation
+## Battery-Pack-Structural-Testbench-Automation
  ![lispstruct](lispstruct)
 The testbench code found in battery_testbench_v1.00.lisp should have some loop with at least four “top-view” conditions (a.k.a. battery monitoring sanity checks) and then it should have some actuation mechanism where as long as those conditions are satisfied, then the next phase of testing will begin according to the state variable or parameter list. So, the top view diagram provided above lists the definitions and relations between the following relevant battery testing parameters:
 
