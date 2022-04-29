@@ -7,6 +7,7 @@
 - [3D-Model-Battery-Holders](#3D-Model-Battery-Holders)
 - [Ideal Diode](#Ideal-Diode)
 - [Temperature-sensing-module](#Temperature-sensing-module)
+- [Bill-of-Materials](#Bill-of-Materials)
 
 ## Overview
 
@@ -111,7 +112,7 @@ The temperature sensing module circuit is based on the use of thermistors in a h
 
 
 
-##Bills of Materials
+## Bill-of-Materials
 
 
 ![bom](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/totol%20par%20lsidt.PNG)
