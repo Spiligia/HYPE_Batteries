@@ -5,6 +5,7 @@ Team #23 Software Report
 - [Overview](#overview)
 - [Battery Temperature Display](#Battery-Temperature-Display)
 - [Qt Creator Download Instruction](#Qt-Creator-Download-Instructions)
+- [Instruction to run Battery Display App](#Instruction-to-run-Battery-Display-Application)
 - [Qt Creator Interface](#Qt-Creator-Interface)
 - [Battery Temperature Simulation App](#Battery-Temperature-App)
 - [Battery Pack Configuration Simulation](#Battery-Pack-Configuration-Simulation)
@@ -29,7 +30,9 @@ The preferred integrated development environment (IDE) for battery temperature d
 6. Under custom installation page select Qt 6.3.0 default feature which will selection all options within the folder
 7. Afterward read Terms of Service page and begin downloading process for Qt Creator
 
-After downloading Qt Creator navigate to github to download the source code for battery temperature display app: https://github.com/Spiligia/HYPE_Batteries/tree/main/BatteryDisplay. From there launch the Qt Creator application and open the project, make sure you select the Battery Display folder. From there you can choose to emulate the application on the PC or another platform either Android or Apple. You must have additional packages downloaded to run on either Android and Apple platform that Qt Creator would recommend to download prior to building the files. 
+## Instruction-to-run-Battery-Display-Application
+
+After downloading Qt Creator navigate to github to download the source code for battery temperature display app: https://github.com/Spiligia/HYPE_Batteries/tree/main/BatteryDisplay. From there launch the Qt Creator application and open the project, make sure you select the Battery Display folder. Navigate to the Measure.qml file to adjust the amount of battery cells you desire in series and parallel. From there you can choose to emulate the application on the PC or another platform either Android or Apple. You must have additional packages downloaded to run on either Android and Apple platform that Qt Creator would recommend to download prior to building the files.  
 
 ## Qt-Creator-Interface
 
