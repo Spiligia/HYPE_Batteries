@@ -5,8 +5,8 @@ Team #23 Software Report
 - [Overview](#overview)
 - [Battery Temperature Display](#Battery-Temperature-Display)
 - [Qt Creator Download Instruction](#Qt-Creator-Download-Instructions)
-- [Instruction to run Battery Display App](#Instruction-to-run-Battery-Display-Application)
 - [Qt Creator Interface](#Qt-Creator-Interface)
+- [Instruction to run Battery Display App](#Instruction-to-run-Battery-Display-Application)
 - [Battery Temperature Simulation App](#Battery-Temperature-App)
 - [Battery Pack Configuration Simulation](#Battery-Pack-Configuration-Simulation)
 - [Battery Pack “Naive” Testbench Automation](#Battery-Pack-“Naive”-Testbench-Automation)
@@ -30,15 +30,15 @@ The preferred integrated development environment (IDE) for battery temperature d
 6. Under custom installation page select Qt 6.3.0 default feature which will selection all options within the folder
 7. Afterward read Terms of Service page and begin downloading process for Qt Creator
 
-## Instruction-to-run-Battery-Display-Application
-
-After downloading Qt Creator navigate to github to download the source code for battery temperature display app: https://github.com/Spiligia/HYPE_Batteries/tree/main/BatteryDisplay. From there launch the Qt Creator application and open the project, make sure you select the Battery Display folder. Navigate to the Measure.qml file to adjust the amount of battery cells you desire in series and parallel. From there you can choose to emulate the application on the PC or another platform either Android or Apple. You must have additional packages downloaded to run on either Android and Apple platform that Qt Creator would recommend to download prior to building the files.  
-
 ## Qt-Creator-Interface
+
+![qt interface pic](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
 
 Basic rundown of Qt creator interface, welcome tab is where you can find example templates, create and open projects, the edit tab will be the project you're working on after you select a file on the welcome tab, the computer icon is how you wish to emulate the app, there’s two play button one to run the file and other is to debug, lastly the hammer icon is to compile the files prior to running.
 
-![qt interface pic](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
+## Instruction-to-run-Battery-Display-Application
+
+After downloading Qt Creator navigate to github to download the source code for battery temperature display app: https://github.com/Spiligia/HYPE_Batteries/tree/main/BatteryDisplay. From there launch the Qt Creator application and open the project, make sure you select the Battery Display folder. Navigate to the Measure.qml file to adjust the amount of battery cells you desire in series and parallel. From there you can choose to emulate the application on the PC or another platform either Android or Apple. You must have additional packages downloaded to run on either Android and Apple platform that Qt Creator would recommend to download prior to building the files.  
 
 ## Battery-Temperature-App 
 
