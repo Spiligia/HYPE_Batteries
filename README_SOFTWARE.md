@@ -35,6 +35,17 @@ After downloading Qt Creator navigate to github to download the source code for 
 Basic rundown of Qt creator interface, welcome tab is where you can find example templates, create and open projects, the edit tab will be the project you're working on after you select a file on the welcome tab, the computer icon is how you wish to emulate the app, there’s two play button one to run the file and other is to debug, lastly the hammer icon is to compile the files prior to running.
 
 ![qt interface pic]('https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
+
+## Battery Temperature Display Flowchart
+	
+![qt interface pic]('https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
+
+The battery temperature display used Qt Example: Bluetooth Low Energy Heart Game as a template for its design that can be found under the Examples tab on Qt Creator. The C++ Sources are mainly untouched except for Heatmapimageprovider.cpp, this was sourced from our client. The following QML files were modified to accommodate the app design: SplashScreen.qml, TitleBar.qml and Measure.qml. Below are relevant documentations done to the user interface in the qml files and the cpp file: 
+
+- SplashScreen.qml: added logo image for the app
+- TitleBar.qml: changed the page indicator size & text on the app title navigation bar
+- Measure.qml: comment out unused code from the heart rate game, added heatmap image & integrate parameters required for it to function from Heatmapimageprovider.cpp, added command to display & remove heatmap temperature data on UI & User console, function to generate random heatmap data temperature and reload heatmap button
+- Heatmapimageprovider.cpp: added new Json Array object batTemp to grab random generate temperature data and attempt to write onto the actual heatmap on the UI
 	
 ## Battery-Pack-Configuration-Simulation
 
