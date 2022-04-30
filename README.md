@@ -1,8 +1,8 @@
 Welcome to Team 23: HYP Batteries! 
 
-![HYP Logo](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Hyp_Final.png)
+![HYP Logo](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Hyp_final.png)
 
-Members: Spencer Piligian, Ismaeel AlAlawi, Steven Wang, Yusheng Chen, and Daniel Kao
+Team Members: Spencer Piligian, Ismaeel AlAlawi, Steven Wang, Yusheng Chen, and Daniel Kao
 
 Link to google drive for more information / process development 
 
