@@ -14,4 +14,4 @@ If possible increase the voltage and currents to the full battery size and then 
 
 ## Software
 
-If changes and revision need to be done to the simulation or battery display see README_SOFTWARE.md
+If changes and revision need to be done to the simulation or battery display see README_SOFTWARE.md for more information regarding setting up the proper simulation tools and source code for the project.
