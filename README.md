@@ -2,7 +2,7 @@
 
 ![HYP Logo](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Hyp_final.png)
 
-Members: Spencer Piligian, Ismaeel AlAlawi, Steven Wang, Yusheng Chen, and Daniel Kao
+Members: Spencer Piligian, Ismaeel AlAlawi, Steven Wang, Yusheng Chen and Daniel Kao
 
 ## Welcome to Team 23: HYP Batteries 
 
