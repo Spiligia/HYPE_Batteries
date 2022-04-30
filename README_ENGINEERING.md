@@ -10,7 +10,7 @@ To start this project one would want to produce and test the ideal diode design 
 
 If someone want to looks at past prototype results and also self test results and it is in the folder called Prototype_Test and Self_Test. 
 
-If possible increase the voltage and currents to the full battery size and then design mechanical components to ensure isolation from the cabin and safety from factors like vibration and drops. Since our model is just an small scale model of the whole pack, scaling up the battery pack may increase the safety concern.
+It is possible to increase the voltage and currents to the full battery size and then design mechanical components to ensure isolation from the cabin and safety from factors like vibration and drops. Since our model is just an small scale model of the whole pack, scaling up the battery pack may increase the safety concern.
 
 ## Software
 
