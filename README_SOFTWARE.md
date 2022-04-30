@@ -6,6 +6,7 @@ Team #23 Software Report
 - [Battery Temperature Display](#Battery-Temperature-Display)
 - [Qt Creator Download Instruction](#Qt-Creator-Download-Instructions)
 - [Qt Creator Interface](#Qt-Creator-Interface)
+- [Battery Temperature Display](#Battery Temperature Display)
 - [Battery Pack Configuration Simulation](#Battery-Pack-Configuration-Simulation)
 - [Battery Pack “Naive” Testbench Automation](#Battery-Pack-“Naive”-Testbench-Automation)
 - [Battery Pack Structural Testbench Automation](#Battery-Pack-Structural-Testbench-Automation)
@@ -36,7 +37,7 @@ Basic rundown of Qt creator interface, welcome tab is where you can find example
 
 ![qt interface pic](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
 
-## Battery Temperature Display Flowchart
+## Battery Temperature Display 
 
 ![Display FlowChart](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/DisplayFlowChart.png)
 
