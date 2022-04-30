@@ -37,7 +37,7 @@ Basic rundown of Qt creator interface, welcome tab is where you can find example
 
 ![qt interface pic](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Qtinterface.PNG)
 
-## Battery-Temperature-Display-App 
+## Battery-Temperature-App 
 
 ![Display FlowChart](https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/DisplayFlowChart.png)
 
