@@ -1,6 +1,6 @@
 Welcome to Team 23: HYP Batteries! 
 
-(https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/HYP.PNG)
+(https://github.com/Spiligia/HYPE_Batteries/blob/main/Pictures/Hyp.PNG)
 
 Link to google drive for more information / process development 
 
