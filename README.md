@@ -4,7 +4,7 @@
 
 Members: Spencer Piligian, Ismaeel AlAlawi, Steven Wang, Yusheng Chen and Daniel Kao
 
-## Welcome to Team 23: HYP Batteries 
+## Welcome to Team 23: HYP Batteries! 
 
 Our hybrid-chemistry battery pack design aims to fill niche market gap in high performance battery pack for small aircraft by combining two batteries with two different discharge characteristics. These two cell chemistries can achieve a variable-max discharge rate, allowing us to design a smaller battery pack while also fulfilling power requirements during the launch. This pack setup will help eGliders achieve a safe flight through the use of electric power and as a result, will minimize the risk of mechanical failure for our client’s conventional mechanical engines, whose vibration causes other parts of the aircraft to wear out and ultimately increases the chance of failure.
 
